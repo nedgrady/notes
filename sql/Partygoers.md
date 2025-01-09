@@ -134,3 +134,49 @@ select	*
 from	payments
 where	payment_confirmed_at > now() - INTERVAL '1 DAY'
 ```
+
+
+# Requirements (Real)
+
+1. We're out on the street gauging interest for the app, we're going to collect some information about people and need a way to store it for later
+	1. Name (We need this)
+	2. Have they ever been to a party before (some people prefer not to answer)
+2. We're hosting members only party. The bouncers want to print a list of members in the system so they can check people turning up are members.
+3. We've decided we'll host two types of parties, one with alcohol one without so we need to track people's ages too
+4. A person called 'Kevin de Boner' turned up, the bouncers noticed there's two people with that name on the printout so weren't sure what to do.
+5. We've contacted people signed up in step 1 (before we tracked age) to ask their age, can you help us store this data?
+6. There's now about 100 people on the printout. Its taking the bouncers a long time to find a name. Can you help speed this process up?
+7. Those changes were great, but its still taking a bit too long. To speed this process up we'll add two queues at parties - a 'newbies' queue and a 'been before' queue. We also want to tick 'newbies' off and update them in our system to reflect they've attended a party.
+8. We're going to host an over 18s party now, can you help us create a list of people who are able to enter?
+
+BREAK
+
+9. We're taking a picture of people's ID when they enter the party. Can you store them in the DB?
+10. We've started to ask what people's favourite drink is upon entry, e.g. 'Diet Coca Cola', 'Pepsi Max' or 'Red Wine'. People can only have 1 favourite drink. We'd like to capture what people's favourite drinks are. (at least 2 ways to do this)
+11. Upon entry, we'd like the bouncers to shout out a person's favourite drink to the bar staff. Can you help us get this info to the bouncers?
+12. Due to a very disgusting viral video, its now taboo to say 'red wine' out loud. People now say 'Rouge Juice'. How can we prevent the bouncers from shouting out 'Rouge Juice' to the bar staff? (at least 2 ways to do this)
+13. Sometimes we've ran out of people's favourite drinks, is it possible for them to have 2 favourite drinks?
+14. We've had some people ask to exercise their 'right to be forgotten' under GDPR. Can you help us add this functionality?
+
+BREAK
+
+Hopefully now we have completed
+* A schema script
+* At least one data migration script
+
+
+
+16. We're ready to host our database for real in a production environment, but we don't have the resources to have a DBA
+	1. https://aws.amazon.com/rds/free/
+	2. Remember to add ip to whitelist![[Pasted image 20241219095530.png]]
+		
+17. When would we choose a managed instance over provisioning SQL on a VM, and vice-versa?
+
+
+
+# Homework
+
+1. Translate the answers we gave using pgsql into another db technology's version of SQL
+2. Compare the two SQL scripts, note how some things are very similar - what does this tell us about the tools/skills we've sharpened today?
+3. Run the other database locally (docker, or bare metal setup)
+4. Quickly setup a free tier on RDS for the above db, create the objects scripted out in part 2.
